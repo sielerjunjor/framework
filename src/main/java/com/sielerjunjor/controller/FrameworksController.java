@@ -24,7 +24,6 @@ public class FrameworksController {
 	
 	@RequestMapping(value ="", method = RequestMethod.GET)
 	public List<Frameworks> getAllFrameworks(){
-		System.out.println("Endpoint hit");
 		return repository.findAll();
 	}
 	
