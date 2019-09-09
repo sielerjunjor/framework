@@ -29,26 +29,26 @@ public class FrameworksController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Frameworks getById(@PathVariable("id") ObjectId id) {
-		return repository.findBy_id(id);
+		return repository.findById(id);
 	}
 	
 	@RequestMapping(value ="", method = RequestMethod.POST)
 	public Frameworks createFramework(@Valid @RequestBody Frameworks frameworks) {
-		frameworks.set_id(ObjectId.get());
+		frameworks.setId(ObjectId.get());
 		repository.save(frameworks);
 		return frameworks;
 	}
 	
 	@RequestMapping(value ="/{id}", method = RequestMethod.PUT)
 	public Frameworks updateFramework(@PathVariable("id") ObjectId id, @Valid @RequestBody Frameworks frameworks) {
-		frameworks.set_id(id);
+		frameworks.setId(id);
 		repository.save(frameworks);
 		return frameworks;
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String deleteFramework(@PathVariable ObjectId id) {
-	    repository.delete(repository.findBy_id(id));
+	    repository.delete(repository.findById(id));
 	    return "{\"message\": \"Framework deleted successfully\"}";
 	}
 	

@@ -7,6 +7,6 @@ import com.sielerjunjor.models.Frameworks;
 
 public interface FrameworksRepository extends MongoRepository<Frameworks, String> {
 
-	Frameworks findBy_id(ObjectId _id);
+	Frameworks findById(ObjectId id);
 	
 }
